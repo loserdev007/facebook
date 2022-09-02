@@ -1,4 +1,5 @@
 /* Define Font Families and Names */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap');
 @font-face {
    font-family: hMedium;
    src: url(fonts/JosefinSans-Medium.ttf);
@@ -37,8 +38,17 @@
 }
 
 
+
+
+
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
 body{
-   background-color: #202124;
+   background-color: #202122;
 }
 
 p{
@@ -47,7 +57,7 @@ p{
 
 input{
    border: 0;
-   background-color: #2b2d31;
+   background-color: #2d2e2fcc;
    height: 40px;
    padding: 20px;
 }
@@ -85,12 +95,6 @@ input:focus{
    border: 2px solid transparent;
    
 }
-.post-title{
-   color: white;
-   font-family: hBold;
-   height: 85px;
-   word-break: break-all;
-}
 .post-text{
    color: #b3b3b3;
    font-family: tRegular;
@@ -103,12 +107,18 @@ input:focus{
 
 header{
    width: 100%;
-   height: 400px;
+   height: 200px;
    background-color: #18181b;
    border-bottom: 2px solid #2e2f33;
    display: flex;
    justify-content: center;
    align-items: center;
+}
+header span{
+   color: white;
+   display: inline-block;
+   margin-right: 20px;
+   font-size: 30px;
 }
 header h1{
    color: white;
@@ -124,16 +134,31 @@ section{
 
 
 
-
-
-
-
-
+#newpost-content, #comment-content{
+   outline: 0;
+   border: 2px solid #393a3bcc !important;
+   padding: 20px;
+   font-size: 18px;
+   background-color: #2d2e2fcc;
+   border-radius: 5px;
+   color: rgb(216, 216, 216);
+   resize: none;
+   overflow: hidden;
+}
+#post-confirmation{
+   height: 0;
+   transition: height 300ms ease;
+   overflow: hidden;
+}
+#new-post{
+   /* height: 0; */
+}
 .add-post{
    padding: 0 0 5% 0;
    margin: 0 0 5% 0;
    border-bottom: 2px solid #3c3e44;
 }
+
 .add-post h3{
    color: #fafafac4;
    font-size: 22px;
@@ -143,28 +168,52 @@ section{
    padding: 0 0 5% 0;
    margin: 0 0 5% 0;
 }
-.all-posts h3{
+#newsfeed-title{
    color: #fafafac4;
    font-size: 22px;
 }
 
 
 
+
+
+
 .post{
    color: white;
-   background-color: #2b2d31;
+   background-color: #2d2e2fcc;
    border-radius: 5px;
    padding: 6%;
+   animation-duration: 1s;
+   animation-iteration-count: 1;
+   animation-direction: normal;
+   animation-timing-function: ease;
+   animation-fill-mode: forwards;
 }
+
+
+@keyframes anm {
+   0%{
+      background-color: #2d2e2fcc;
+   }
+   1%{
+      background-color: #44484e;
+   }
+   100%{
+      background-color: #2d2e2fcc;
+   }
+}
+
+
 .post + .post{
-   margin-top: 4%;
+   margin: 3% 0;
 }
 .post .user-name{
    font-size: 16px;
-   font-weight: bold;
+   font-weight: 600;
+   font-family: 'Fira Sans', sans-serif;
 }
 .post .post-details{
-   font-size: 13px;
+   font-size: 12px;
    font-weight: 300;
 }
 .post .content{
@@ -175,7 +224,7 @@ section{
 }
 .post .extras{
    margin-top: 6%;
-   padding: 2% 0 0 0;
+   padding: 1% 0 0 0;
    border-top: 1px solid #46484e;
 }
 .post .total-likes{
@@ -191,7 +240,7 @@ section{
    color: rgb(0, 255, 149);
 }
 .post .extras .feedback *{
-   background-color: #3e4147;
+   background-color: #414244cc;
    padding: 7px 0;
    width: 32%;
    outline: 0;
@@ -199,6 +248,39 @@ section{
    text-align: center;
    color: white;
 }
+
+
+
+#comment-content{
+   font-size: 16px;
+   padding: 5px 20px;
+   border-radius: 100px;
+}
+.my-comment {
+   padding: 15px 0;
+}
+.my-comment button{
+   width: 60px;
+   height: 38px;
+   display: flex;
+   border-radius: 1000px;
+   justify-content: center;
+   align-items: center;
+   border: 0;
+   margin-left: 15px;
+   background-color: rgba(0, 225, 255, 0.293);
+}
+i{
+   color: white;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -245,17 +327,9 @@ section{
 }
 
 
-#newpost-content{
-   outline: 0;
-   border: 2px solid rgb(223, 223, 223) !important;
-   padding: 20px;
-   font-size: 18px;
-}
-
-
 button[data-liked="like"]{
    background-color: #374562 !important;
 }
 button[data-liked="dislike"]{
-   background-color: #3e4147 !important;
+   background-color: #414244cc !important;
 }
